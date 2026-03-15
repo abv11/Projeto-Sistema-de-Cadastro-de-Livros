@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Livros - Cadastro</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/validar.js' %}"></script>
+</head>
+<body>
+    <div class="menu">
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'cadastro' %}">Cadastrar Livro</a> |
+        <a href="{% url 'consulta' %}">Consultar por Nome</a> |
+        <a href="{% url 'listar' %}">Listar Livros</a> |
+        <a href="{% url 'sobre' %}">Sobre</a> |
+        <a href="{% url 'contato' %}">Contato</a>
+    </div>
+
+    <h1>Cadastro de Livro</h1>
+
+    {% if erro %}
+        <p class="erro">{{ erro }}</p>
+    {% endif %}
+
+    <form method="post" onsubmit="return validarFormulario();">
+        {% csrf_token %}
+
+        <div class="formulario">
+            <label for="titulo">Título:</label><br>
+            <input type="text" id="titulo" name="titulo"><br><br>
+
+            <label for="autor">Autor:</label><br>
+            <input type="text" id="autor" name="autor"><br><br>
+
+            <label for="editora">Editora:</label><br>
+            <input type="text" id="editora" name="editora"><br><br>
+
+            <label for="ano">Ano de publicação:</label><br>
+            <input type="text" id="ano" name="ano"><br><br>
+
+            <label for="paginas">Número de páginas:</label><br>
+            <input type="text" id="paginas" name="paginas"><br><br>
+
+            <label for="categoria">Categoria:</label><br>
+            <input type="text" id="categoria" name="categoria"><br><br>
+
+            <label for="isbn">ISBN:</label><br>
+            <input type="text" id="isbn" name="isbn"><br><br>
+
+            <label for="idioma">Idioma:</label><br>
+            <input type="text" id="idioma" name="idioma"><br><br>
+
+            <label for="descricao">Descrição:</label><br>
+            <textarea id="descricao" name="descricao" rows="4" cols="40"></textarea><br><br>
+
+            <label for="cadastrado_por">Nome de quem cadastrou:</label><br>
+            <input type="text" id="cadastrado_por" name="cadastrado_por"><br><br>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+        <a class="botao" href="{% url 'home' %}">Voltar</a>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Livros - Resultado</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="menu">
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'cadastro' %}">Cadastrar Livro</a> |
+        <a href="{% url 'consulta' %}">Consultar por Nome</a> |
+        <a href="{% url 'listar' %}">Listar Livros</a> |
+        <a href="{% url 'sobre' %}">Sobre</a> |
+        <a href="{% url 'contato' %}">Contato</a>
+    </div>
+
+    <h1>Resultado da Pesquisa</h1>
+
+    {% if termo %}
+        <p>Você pesquisou: <strong>{{ termo }}</strong></p>
+    {% endif %}
+
+    {% if mensagem %}
+        <p>{{ mensagem }}</p>
+    {% endif %}
+
+    {% if livros %}
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ação</th>
+            </tr>
+            {% for livro in livros %}
+                <tr>
+                    <td>{{ livro.titulo }}</td>
+                    <td>{{ livro.autor }}</td>
+                    <td>
+                        <a class="link" href="{% url 'detalhes' livro.id %}">Ver</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <br>
+    <a class="botao" href="{% url 'consulta' %}">Nova Pesquisa</a>
+</body>
+</html>
+
