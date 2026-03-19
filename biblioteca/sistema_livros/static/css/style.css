@@ -144,6 +144,15 @@ button:hover,
 	outline-color: #4db6ac;
 }
 
+.formulario form {
+    display: flex;
+    flex-direction: column; 
+}
+.formulario button[type="submit"] {
+    width: auto;
+    align-self: center;
+}
+
 .erro,
 .ok {
 	font-size: 13px;
