@@ -21,13 +21,18 @@
         <a href="{% url 'contato' %}">Contato</a>
     </div>
 
-    <h1>Consultar Livro pelo Nome</h1>
+        <h1>Consultar Livro pelo Nome</h1>
 
-    <form method="get" action="{% url 'resultado' %}">
-        <label for="q">Digite o título:</label><br>
-        <input type="text" id="q" name="q">
-        <button type="submit">Pesquisar</button>
-    </form>
+    <div class="formulario">
+        <form method="get" action="{% url 'resultado' %}">
+            <label for="q">Digite o título:</label>
+            <input type="text" id="q" name="q" placeholder="Ex: Dom Casmurro...">
+            <div style="text-align: center;">
+                <button type="submit">Pesquisar</button>
+            </div>
+        </form>
+    </div>
+
 </body>
 
 </html>
