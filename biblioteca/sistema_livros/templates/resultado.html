@@ -1,12 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Sistema de Livros - Resultado</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
+    <img src="https://i.pinimg.com/originals/3f/f2/d3/3ff2d35e5201610bbcd7b7a45e930f1e.gif" alt="GIF decorativo"
+        class="gif-topo">
+
     <div class="menu">
         <a href="{% url 'home' %}">Home</a> |
         <a href="{% url 'cadastro' %}">Cadastrar Livro</a> |
@@ -19,34 +24,34 @@
     <h1>Resultado da Pesquisa</h1>
 
     {% if termo %}
-        <p>Você pesquisou: <strong>{{ termo }}</strong></p>
+    <p>Você pesquisou: <strong>{{ termo }}</strong></p>
     {% endif %}
 
     {% if mensagem %}
-        <p>{{ mensagem }}</p>
+    <p>{{ mensagem }}</p>
     {% endif %}
 
     {% if livros %}
-        <table>
-            <tr>
-                <th>Título</th>
-                <th>Autor</th>
-                <th>Ação</th>
-            </tr>
-            {% for livro in livros %}
-                <tr>
-                    <td>{{ livro.titulo }}</td>
-                    <td>{{ livro.autor }}</td>
-                    <td>
-                        <a class="link" href="{% url 'detalhes' livro.id %}">Ver</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Ação</th>
+        </tr>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro.titulo }}</td>
+            <td>{{ livro.autor }}</td>
+            <td>
+                <a class="link" href="{% url 'detalhes' livro.id %}">Ver</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
     {% endif %}
 
     <br>
     <a class="botao" href="{% url 'consulta' %}">Nova Pesquisa</a>
 </body>
-</html>
 
+</html>
