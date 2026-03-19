@@ -1,14 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Sistema de Livros - Home</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
+    <img src="https://i.pinimg.com/originals/3f/f2/d3/3ff2d35e5201610bbcd7b7a45e930f1e.gif" alt="GIF decorativo"
+        class="gif-topo">
+
     <div class="menu">
-        <a href="{% url 'home' %}">Home</a> |
+        <!-- <a href="{% url 'home' %}">Home</a> |-->
         <a href="{% url 'cadastro' %}">Cadastrar Livro</a> |
         <a href="{% url 'consulta' %}">Consultar por Nome</a> |
         <a href="{% url 'listar' %}">Listar Livros</a> |
@@ -18,12 +23,13 @@
 
     <h1>Sistema de Cadastro de Livros</h1>
 
-    <p>Bem-vindo! Esse é um sisteminha simples feito em Django para cadastrar, consultar, listar e excluir livros.</p>
+    <p>Bem-vindo(a)! Esse é um sisteminha simples feito em Django para cadastrar, consultar, listar e excluir livros.
+    </p>
 
     <div class="botoes">
         <a class="botao" href="{% url 'cadastro' %}">+ Novo Livro</a>
         <a class="botao" href="{% url 'listar' %}">Ver Lista</a>
     </div>
 </body>
-</html>
 
+</html>
